@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import WelcomeScreen from "../pages/WelcomeScreen";
 import HomeScreen from "../pages/HomeScreen";
+import BottomTabNavigator from "./bottomTab";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ function Route() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 }
