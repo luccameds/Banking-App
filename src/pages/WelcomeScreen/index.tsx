@@ -17,19 +17,19 @@ const COLORS = { black: "#101010" };
 const slides = [
   {
     id: "1",
-    image: require("../images/image1.png"),
+    image: require("../../images/image1.png"),
     title: "Sua renda é investida e protegida por nós",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "2",
-    image: require("../images/image2.png"),
+    image: require("../../images/image2.png"),
     title: "Realize saques e depósitos em qualquer lugar",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "3",
-    image: require("../images/image3.png"),
+    image: require("../../images/image3.png"),
     title: "Proteja o seu dinheiro",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
@@ -50,7 +50,7 @@ const Slide = ({ item }) => {
   );
 };
 
-const OnboardingScreen = ({ navigation }: any) => {
+const WelcomeScreen = ({ navigation }: any) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const ref = React.useRef();
   const updateCurrentSlideIndex = (e) => {
@@ -230,4 +230,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-export default OnboardingScreen;
+export default WelcomeScreen;
