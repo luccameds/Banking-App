@@ -1,6 +1,6 @@
 import React from "react";
 
-import OnboardingScreen from "./src/components/OnboardingScreen";
+import OnboardingScreen from "./src/pages/OnboardingScreen";
 
 const App = () => {
   return <OnboardingScreen />;
