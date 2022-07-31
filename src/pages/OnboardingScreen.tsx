@@ -6,42 +6,41 @@ import {
   FlatList,
   View,
   Text,
-  StatusBar,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-const COLORS = { primary: "#282534", white: "#fff" };
+const COLORS = { black: "#101010" };
 
 const slides = [
   {
     id: "1",
     image: require("../images/image1.png"),
-    title: "Health in your Life",
+    title: "Sua renda é investida e protegida por nós",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "2",
     image: require("../images/image2.png"),
-    title: "Style in everywhere",
+    title: "Realize saques e depósitos em qualquer lugar",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     id: "3",
     image: require("../images/image3.png"),
-    title: "Beautiful, Cute, Awesome",
+    title: "Proteja o seu dinheiro",
     subtitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
 
 const Slide = ({ item }) => {
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={styles.containerSlide}>
       <Image
         source={item?.image}
-        style={{ height: "75%", width, resizeMode: "contain" }}
+        style={{ height: "50%", width, resizeMode: "contain" }}
       />
       <View>
         <Text style={styles.title}>{item?.title}</Text>
@@ -51,7 +50,7 @@ const Slide = ({ item }) => {
   );
 };
 
-const OnboardingScreen = ({ navigation }) => {
+const OnboardingScreen = ({ navigation }: any) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const ref = React.useRef();
   const updateCurrentSlideIndex = (e) => {
@@ -100,7 +99,7 @@ const OnboardingScreen = ({ navigation }) => {
               style={[
                 styles.indicator,
                 currentSlideIndex == index && {
-                  backgroundColor: COLORS.white,
+                  backgroundColor: COLORS.black,
                   width: 25,
                 },
               ]}
@@ -116,8 +115,10 @@ const OnboardingScreen = ({ navigation }) => {
                 style={styles.btn}
                 onPress={() => navigation.replace("HomeScreen")}
               >
-                <Text style={{ fontWeight: "bold", fontSize: 15 }}>
-                  GET STARTED
+                <Text
+                  style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 15 }}
+                >
+                  INICIAR
                 </Text>
               </TouchableOpacity>
             </View>
@@ -128,7 +129,7 @@ const OnboardingScreen = ({ navigation }) => {
                 style={[
                   styles.btn,
                   {
-                    borderColor: COLORS.white,
+                    borderColor: COLORS.black,
                     borderWidth: 1,
                     backgroundColor: "transparent",
                   },
@@ -139,10 +140,9 @@ const OnboardingScreen = ({ navigation }) => {
                   style={{
                     fontWeight: "bold",
                     fontSize: 15,
-                    color: COLORS.white,
                   }}
                 >
-                  SKIP
+                  PULAR
                 </Text>
               </TouchableOpacity>
               <View style={{ width: 15 }} />
@@ -155,9 +155,10 @@ const OnboardingScreen = ({ navigation }) => {
                   style={{
                     fontWeight: "bold",
                     fontSize: 15,
+                    color: "#FFFFFF",
                   }}
                 >
-                  NEXT
+                  PRÓXIMO
                 </Text>
               </TouchableOpacity>
             </View>
@@ -168,8 +169,7 @@ const OnboardingScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
-      <StatusBar backgroundColor={COLORS.primary} />
+    <SafeAreaView style={{ flex: 1 }}>
       <FlatList
         ref={ref}
         onMomentumScrollEnd={updateCurrentSlideIndex}
@@ -186,20 +186,27 @@ const OnboardingScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  containerSlide: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    width: "100%",
+  },
   subtitle: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 13,
     marginTop: 10,
-    maxWidth: "70%",
     textAlign: "center",
     lineHeight: 23,
+    maxWidth: "90%",
   },
   title: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 22,
-    fontWeight: "bold",
     marginTop: 20,
+    fontWeight: "bold",
     textAlign: "center",
+    maxWidth: 300,
   },
   image: {
     height: "100%",
@@ -217,7 +224,8 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     borderRadius: 5,
-    backgroundColor: "#fff",
+    color: "#FFFFFF",
+    backgroundColor: "#202020",
     justifyContent: "center",
     alignItems: "center",
   },
