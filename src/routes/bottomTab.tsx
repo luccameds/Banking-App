@@ -4,43 +4,31 @@ import {
   BottomNavigation,
   BottomNavigationTab,
   Icon,
-  Layout,
-  Text,
 } from "@ui-kitten/components";
+
+import BottomHomeScreen from "../pages/BottomTab/HomeScreen";
+import WalletScreen from "../pages/BottomTab/WalletScreen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-const PersonIcon = <Icon name="person-outline" />;
+const HomeIcon = <Icon name="home-outline" />;
+const CardIcon = <Icon name="credit-card-outline" />;
 
-const BellIcon = <Icon name="bell-outline" />;
-
-const UsersScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text category="h1">USERS</Text>
-  </Layout>
-);
-
-const OrdersScreen = () => (
-  <Layout style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    <Text category="h1">ORDERS</Text>
-  </Layout>
-);
-
-const BottomTabBar = ({ navigation, state }) => (
+const BottomTabBar = ({ navigation, state }: any) => (
   <BottomNavigation
     selectedIndex={state.index}
     onSelect={(index) => navigation.navigate(state.routeNames[index])}
   >
-    <BottomNavigationTab title="USERS" icon={PersonIcon} />
-    <BottomNavigationTab title="ORDERS" icon={BellIcon} />
+    <BottomNavigationTab icon={HomeIcon} />
+    <BottomNavigationTab icon={CardIcon} />
   </BottomNavigation>
 );
 
 export default function BottomTabNavigator() {
   return (
     <Navigator tabBar={(props) => <BottomTabBar {...props} />}>
-      <Screen name="Users" component={UsersScreen} />
-      <Screen name="Orders" component={OrdersScreen} />
+      <Screen name="BottomHomeScreen" component={BottomHomeScreen} />
+      <Screen name="WalletScreen" component={WalletScreen} />
     </Navigator>
   );
 }
