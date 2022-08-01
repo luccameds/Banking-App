@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 
 function Route() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator screenOptions={{ headerShown: false, animation: "none" }}>
       <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />

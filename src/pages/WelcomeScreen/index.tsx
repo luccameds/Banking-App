@@ -1,14 +1,15 @@
 import React from "react";
 import {
-  SafeAreaView,
   Image,
   StyleSheet,
   FlatList,
   View,
-  Text,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import { Layout, Text } from "@ui-kitten/components";
+import { default as theme } from "../../../src/theme/theme.json"; // <-- Import app theme
+import { ThemeContext } from "../../contexts/theme";
 
 const { width, height } = Dimensions.get("window");
 
@@ -43,8 +44,12 @@ const Slide = ({ item }) => {
         style={{ height: "50%", width, resizeMode: "contain" }}
       />
       <View>
-        <Text style={styles.title}>{item?.title}</Text>
-        <Text style={styles.subtitle}>{item?.subtitle}</Text>
+        <Text category={"h5"} style={styles.title}>
+          {item?.title}
+        </Text>
+        <Text category={"c2"} style={styles.subtitle}>
+          {item?.subtitle}
+        </Text>
       </View>
     </View>
   );
@@ -76,6 +81,9 @@ const WelcomeScreen = ({ navigation }: any) => {
   };
 
   const Footer = () => {
+    const themeContext = React.useContext(ThemeContext);
+    console.log(themeContext.theme);
+
     return (
       <View
         style={{
@@ -99,7 +107,10 @@ const WelcomeScreen = ({ navigation }: any) => {
               style={[
                 styles.indicator,
                 currentSlideIndex == index && {
-                  backgroundColor: COLORS.black,
+                  backgroundColor:
+                    themeContext.theme === "light"
+                      ? theme["color-primary-500"]
+                      : theme["color-basic-100"],
                   width: 25,
                 },
               ]}
@@ -113,7 +124,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             <View style={{ height: 50 }}>
               <TouchableOpacity
                 style={styles.btn}
-                onPress={() => navigation.replace("HomeScreen")}
+                onPress={() => navigation.navigate("HomeScreen")}
               >
                 <Text
                   style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 15 }}
@@ -169,7 +180,7 @@ const WelcomeScreen = ({ navigation }: any) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <Layout style={{ flex: 1 }}>
       <FlatList
         ref={ref}
         onMomentumScrollEnd={updateCurrentSlideIndex}
@@ -181,7 +192,7 @@ const WelcomeScreen = ({ navigation }: any) => {
         renderItem={({ item }) => <Slide item={item} />}
       />
       <Footer />
-    </SafeAreaView>
+    </Layout>
   );
 };
 
@@ -193,18 +204,13 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   subtitle: {
-    color: COLORS.black,
-    fontSize: 13,
     marginTop: 10,
     textAlign: "center",
     lineHeight: 23,
     maxWidth: "90%",
   },
   title: {
-    color: COLORS.black,
-    fontSize: 22,
     marginTop: 20,
-    fontWeight: "bold",
     textAlign: "center",
     maxWidth: 300,
   },

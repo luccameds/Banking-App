@@ -5,16 +5,27 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 
+import { default as CustomTheme } from "./src/theme/theme.json";
+
 import Route from "./src/routes";
+import { ThemeContext } from "./src/contexts/theme";
 
 export default function App() {
+  const [theme, setTheme] = React.useState("light");
+  const toggleTheme = () => {
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+  };
+
   return (
     <NavigationContainer>
       <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva["light"]}>
-        <StatusBar />
-        <Route />
-      </ApplicationProvider>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ApplicationProvider {...eva} theme={{ ...eva[theme], ...CustomTheme }}>
+          <StatusBar />
+          <Route />
+        </ApplicationProvider>
+      </ThemeContext.Provider>
     </NavigationContainer>
   );
 }

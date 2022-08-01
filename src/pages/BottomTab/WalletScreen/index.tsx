@@ -1,10 +1,15 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet } from "react-native";
+import { Layout } from "@ui-kitten/components";
 
 // import { Container } from './styles';
 
 const WalletScreen: React.FC = () => {
-  return <View />;
+  return <Layout style={styles.container} />;
 };
 
 export default WalletScreen;
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+});

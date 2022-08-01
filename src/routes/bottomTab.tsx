@@ -27,8 +27,16 @@ const BottomTabBar = ({ navigation, state }: any) => (
 export default function BottomTabNavigator() {
   return (
     <Navigator tabBar={(props) => <BottomTabBar {...props} />}>
-      <Screen name="BottomHomeScreen" component={BottomHomeScreen} />
-      <Screen name="WalletScreen" component={WalletScreen} />
+      <Screen
+        name="BottomHomeScreen"
+        component={BottomHomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="WalletScreen"
+        component={WalletScreen}
+        options={{ headerShown: false }}
+      />
     </Navigator>
   );
 }

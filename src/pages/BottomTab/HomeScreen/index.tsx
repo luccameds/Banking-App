@@ -1,12 +1,30 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native";
+import { Button, Layout } from "@ui-kitten/components";
+import { ThemeContext } from "../../../contexts/theme";
 
-const BottomHomeScreen: React.FC = () => {
-  return <View style={styles.container} />;
-};
+export default function BottomHomeScreen({ navigation }) {
+  const themeContext = React.useContext(ThemeContext);
 
-export default BottomHomeScreen;
+  const navigateDetails = () => {
+    navigation.navigate("Details");
+  };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#1e1e1e" },
-});
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <Layout
+        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      >
+        <Button style={{ marginVertical: 4 }} onPress={navigateDetails}>
+          OPEN DETAILS
+        </Button>
+        <Button
+          style={{ marginVertical: 4 }}
+          onPress={themeContext.toggleTheme}
+        >
+          TOGGLE THEME
+        </Button>
+      </Layout>
+    </SafeAreaView>
+  );
+}
