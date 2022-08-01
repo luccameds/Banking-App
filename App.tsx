@@ -22,7 +22,7 @@ export default function App() {
       <IconRegistry icons={EvaIconsPack} />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <ApplicationProvider {...eva} theme={{ ...eva[theme], ...CustomTheme }}>
-          <StatusBar />
+          <StatusBar style={theme === "light" ? "dark" : "light"} />
           <Route />
         </ApplicationProvider>
       </ThemeContext.Provider>
