@@ -4,8 +4,6 @@ import { Card, Icon, Layout, Text } from "@ui-kitten/components";
 import { ListComponent } from "../../../components/List";
 import { ThemeContext } from "../../../contexts/theme";
 
-// import { Container } from './styles';
-
 const data = [
   { icon: "ios-logo-amazon", title: "Amazon", description: "Vendas On-line" },
   { icon: "ios-logo-playstation", title: "PlayStation", description: "Jogos" },
@@ -62,7 +60,7 @@ const WalletScreen: React.FC = () => {
 export default WalletScreen;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingVertical: 90 },
+  container: { flex: 1, paddingTop: 90 },
   card: { width: "90%", alignSelf: "center" },
   walletLayout: {
     alignSelf: "center",
