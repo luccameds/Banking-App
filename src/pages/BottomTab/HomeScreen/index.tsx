@@ -3,11 +3,11 @@ import { SafeAreaView } from "react-native";
 import { Button, Layout } from "@ui-kitten/components";
 import { ThemeContext } from "../../../contexts/theme";
 
-export default function BottomHomeScreen({ navigation }) {
+export default function HomeScreen({ navigation }) {
   const themeContext = React.useContext(ThemeContext);
 
   const navigateDetails = () => {
-    navigation.navigate("Details");
+    navigation.navigate("WalletScreen");
   };
 
   return (
@@ -16,13 +16,13 @@ export default function BottomHomeScreen({ navigation }) {
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
         <Button style={{ marginVertical: 4 }} onPress={navigateDetails}>
-          OPEN DETAILS
+          ABRIR DETALHES
         </Button>
         <Button
           style={{ marginVertical: 4 }}
           onPress={themeContext.toggleTheme}
         >
-          TOGGLE THEME
+          MUDAR TEMA
         </Button>
       </Layout>
     </SafeAreaView>

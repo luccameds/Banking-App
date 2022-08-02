@@ -81,6 +81,8 @@ const LoginScreen: React.FC = ({ navigation }: any) => {
   );
 };
 
+export default LoginScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -105,5 +107,3 @@ const styles = StyleSheet.create({
     marginVertical: 30,
   },
 });
-
-export default LoginScreen;

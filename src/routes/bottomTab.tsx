@@ -6,8 +6,8 @@ import {
   Icon,
 } from "@ui-kitten/components";
 
-import BottomHomeScreen from "../pages/BottomTab/HomeScreen";
 import WalletScreen from "../pages/BottomTab/WalletScreen";
+import HomeScreen from "../pages/BottomTab/HomeScreen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -28,8 +28,8 @@ export default function BottomTabNavigator() {
   return (
     <Navigator tabBar={(props) => <BottomTabBar {...props} />}>
       <Screen
-        name="BottomHomeScreen"
-        component={BottomHomeScreen}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{ headerShown: false }}
       />
       <Screen

@@ -82,8 +82,6 @@ const WelcomeScreen = ({ navigation }: any) => {
 
   const Footer = () => {
     const themeContext = React.useContext(ThemeContext);
-    console.log(themeContext.theme);
-
     return (
       <View
         style={{
