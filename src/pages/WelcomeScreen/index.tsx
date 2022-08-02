@@ -124,7 +124,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             <View style={{ height: 50 }}>
               <TouchableOpacity
                 style={styles.btn}
-                onPress={() => navigation.navigate("HomeScreen")}
+                onPress={() => navigation.navigate("LoginScreen")}
               >
                 <Text
                   style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: 15 }}
