@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Card, Icon, Layout, Text } from "@ui-kitten/components";
 import { ListComponent } from "../../../components/List";
 import { ThemeContext } from "../../../contexts/theme";
@@ -33,7 +33,7 @@ const WalletScreen: React.FC = () => {
           Balanço Total
         </Text>
         <Text category={"h1"}>R$3.500,00</Text>
-        <Layout style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row" }}>
           <Icon
             style={{ height: 30, width: 30 }}
             fill="#4daa00"
@@ -42,7 +42,7 @@ const WalletScreen: React.FC = () => {
           <Text category={"s1"} style={styles.porcentageText}>
             +4,5% hoje
           </Text>
-        </Layout>
+        </View>
       </Card>
       <Layout style={styles.walletLayout}>
         <Text category={"h5"}>Carteira</Text>
